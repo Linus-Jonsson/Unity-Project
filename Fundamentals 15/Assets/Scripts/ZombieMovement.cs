@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieMovement : MonoBehaviour
 {
     [SerializeField] private int speed = 1;
-    Transform playerTransform;
+    private Transform playerTransform;
 	private Rigidbody2D rb2D;
 	private Vector2 direction;
 
