@@ -29,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
             currentAmountOfProjectiles -= 1;
 
             GameObject shootEffektClone = Instantiate(shootEffekt, shootPoint.position, shootEffekt.transform.rotation);
-            SpreadShoot(1);
+            SpreadShoot(1); 
         }
     }
 

@@ -12,7 +12,8 @@ public class PlayerProjectileCreationStation : MonoBehaviour
     private bool canCraft = false;
     void Start()
     {
-        playerShoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<PlayerShoot>();
+        if(GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<PlayerShoot>() != null)
+            playerShoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<PlayerShoot>();
         textSpawnPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
