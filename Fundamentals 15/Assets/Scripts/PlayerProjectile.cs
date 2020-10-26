@@ -6,10 +6,20 @@ public class PlayerProjectile : MonoBehaviour
 {
     public GameObject hitEffekt;
     Rigidbody2D rb;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    private void Update()
+    {
+        if (!GetComponent<SpriteRenderer>().isVisible)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var tag = collision.gameObject.tag;

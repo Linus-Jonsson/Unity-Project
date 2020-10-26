@@ -14,10 +14,20 @@ public class PlayerShoot : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFire = 0;
 
+    public int maxProjectiles = 6;
+    private int currentAmountOfProjectiles;
+
+    private void Start()
+    {
+        currentAmountOfProjectiles = maxProjectiles;
+    }
+
     void Update()
     {
-        if(Time.time > nextFire && Input.GetMouseButtonDown(0)){
-            nextFire = fireRate + Time.time;
+        if(currentAmountOfProjectiles > 0 && Time.time > nextFire && Input.GetMouseButtonDown(0)){
+            nextFire = fireRate + Time.time;          
+            currentAmountOfProjectiles -= 1;
+
             GameObject shootEffektClone = Instantiate(shootEffekt, shootPoint.position, shootEffekt.transform.rotation);
             SpreadShoot(1);
         }
@@ -40,5 +50,21 @@ public class PlayerShoot : MonoBehaviour
 
             cloneRb.velocity = bulletClone.transform.up.normalized * launchForce; //transform.up kan va vad som.
         }
+    }
+
+    public void AddProjetiles(int amount)
+    {
+        currentAmountOfProjectiles += amount;
+        print(currentAmountOfProjectiles);
+    }
+
+    public bool CanCraft()
+    {
+        if (currentAmountOfProjectiles >= maxProjectiles)
+        {
+            currentAmountOfProjectiles = maxProjectiles;
+            return false;
+        }
+        return true;
     }
 }
