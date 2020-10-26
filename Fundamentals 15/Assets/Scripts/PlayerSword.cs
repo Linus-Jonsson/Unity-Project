@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerSword : MonoBehaviour
 {
 	public float swingSpeed = 6;
-	public float swingAngle = 90;
+	public float swingAngle1 = 90;
+    public float swingAngle2 = 0;
+    public bool goBack = false;
 
     public AudioClip swordWing;
     public GameObject zombieSlashEffect;
@@ -24,18 +26,18 @@ public class PlayerSword : MonoBehaviour
         {
             audioSource.clip = swordWing;
             audioSource.Play();
-			StartCoroutine(Swong(swingSpeed, swingAngle));
+			StartCoroutine(Swong(swingSpeed, swingAngle1, swingAngle2, goBack));
 		}
 	}
 
     bool swingRight = true;
     //lmao kanske borde animeras men blev triggrad som satan på unity animator så gjorde animationen i kod :D
-    IEnumerator Swong(float swingSpeed, float swingAngle = 90)
+    IEnumerator Swong(float swingSpeed, float swingAngle = 90, float swingAngle2 = -90, bool returnSword = false)
     {
         isSwinging = true;
 
         var point1 = transform.forward * swingAngle;
-        var point2 = transform.forward * -swingAngle;
+        var point2 = transform.forward * -swingAngle2;
 
         if (!swingRight)
         {
@@ -54,7 +56,12 @@ public class PlayerSword : MonoBehaviour
             transform.localEulerAngles = Vector3.Lerp(point1, point2, t);
             yield return null;
         }
-        isSwinging = false;
+
+        if (returnSword)
+            StartCoroutine(Swong(swingSpeed, swingAngle, swingAngle2, false));
+        else
+            isSwinging = false;
+
         yield return new WaitForEndOfFrame();
     }
 
