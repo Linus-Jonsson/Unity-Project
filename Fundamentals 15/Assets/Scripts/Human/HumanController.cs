@@ -22,11 +22,11 @@ public class HumanController : MonoBehaviour {
 
 		rb2D.velocity = direction * speed;
 
-		RotateTo(direction);
+		RotateTowards(direction);
 	}
 
-	private void RotateTo(Vector3 direction) {
+	private void RotateTowards(Vector3 direction) {
 		Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
-		transform.rotation = rotation * Quaternion.Euler(0, 0, 90);
+		transform.rotation = rotation;
 	}
 }
