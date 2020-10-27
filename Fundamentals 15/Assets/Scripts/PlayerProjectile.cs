@@ -37,7 +37,7 @@ public class PlayerProjectile : MonoBehaviour
             ContactPoint2D contact = collision.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Instantiate(hitEffekt, contact.point, rot);
-            collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
+            collision.gameObject.GetComponent<ZombieHealth>().HumanTransformation();
         }
         else
         {

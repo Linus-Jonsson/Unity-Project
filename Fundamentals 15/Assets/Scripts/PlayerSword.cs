@@ -69,13 +69,15 @@ public class PlayerSword : MonoBehaviour
     {
         var tag = collision.gameObject.tag;
         if (tag == "Zombie")
+        {
             collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
 
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-            Vector3 pos = contact.point;
-            GameObject zombieEffekt = Instantiate(zombieSlashEffect, pos, rot);
-        }
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+                Vector3 pos = contact.point;
+                GameObject zombieEffekt = Instantiate(zombieSlashEffect, pos, rot);
+            }
+        }            
     }
 }
