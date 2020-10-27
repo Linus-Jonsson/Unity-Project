@@ -5,42 +5,51 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class ZombieHealth : MonoBehaviour
 {
-    [SerializeField] int health = 1;
+    public int startHealth = 3;
+    private int currentHealth = 1;
     [SerializeField] GameObject deathVFX; // ToDo - Create/add deathVFX
     [SerializeField] Sprite[] spriteArray;
     public AudioClip hurtSound;
+    public AudioClip deathSound;
     AudioSource audioSource;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        currentHealth = startHealth;
     }
     public void DealDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+        if (currentHealth <= 0) {
+            TriggerDeathVFX();
+            return;
+        }
         audioSource.clip = hurtSound;
         audioSource.Play();
-
-        if (health <= 0) {
-            TriggerDeathVFX();
-            HumanTransformation();
-        }
     }
 
     private void TriggerDeathVFX()
     {
         if (!deathVFX)
             return;
-        GameObject deathVFXObject = Instantiate(deathVFX, transform.position, transform.rotation);
-        Destroy(deathVFXObject, 1f);
+
+        GameObject deathVFXObject = Instantiate(deathVFX, transform.position, deathVFX.transform.rotation);
+        
+        var deathAS = deathVFXObject.GetComponent<AudioSource>();
+        deathAS.clip = deathSound;
+        deathAS.Play();
+
+        Destroy(gameObject);
+
     }
     
-    void HumanTransformation()
+    public void HumanTransformation()
     {
             GetComponentInChildren<SpriteRenderer>().sprite = spriteArray[1];
             GetComponent<ZombieMovement>().enabled = false;
             GetComponent<HumanController>().enabled = true;
-            tag = "Human";
-            name = "Human";
+            gameObject.tag = "Human";
+            gameObject.name = "Human";
     }
 }
