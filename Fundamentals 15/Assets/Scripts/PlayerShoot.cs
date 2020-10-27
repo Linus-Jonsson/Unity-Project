@@ -54,8 +54,7 @@ public class PlayerShoot : MonoBehaviour
 
     public void AddProjetiles(int amount)
     {
-        currentAmountOfProjectiles += amount;
-        print(currentAmountOfProjectiles);
+        currentAmountOfProjectiles += amount;    
     }
 
     public bool CanCraft()
