@@ -4,26 +4,45 @@ using UnityEngine;
 
 public class ZombieMovement : MonoBehaviour
 {
-    [SerializeField] private int speed = 1;
-    private Transform playerTransform;
+	[SerializeField] private int huntPlayerChance = 50;
+	[SerializeField] private int speed = 1;
+  private Transform target;
 	private Rigidbody2D rb2D;
 	private Vector2 direction;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		playerTransform = GameObject.FindWithTag("Player").transform;
 		rb2D = GetComponent<Rigidbody2D>();
+
+		if (Random.Range(0, 100) < huntPlayerChance)
+			HuntPlayer();
+		else
+			HuntRandomHuman();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		direction = playerTransform.position - transform.position;
+		direction = target.position - transform.position;
 		direction.Normalize();
 
 		Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
 		transform.rotation = rotation;
+	}
+
+	private void HuntPlayer() {
+		target = GameObject.FindWithTag("Player").transform;
+	}
+
+	private void HuntRandomHuman() {
+		GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
+		if (humans.Length <= 0) {
+			HuntPlayer();
+		}
+
+		GameObject human = humans[Random.Range(0, humans.Length - 1)];
+		target = human.transform;
 	}
 
 	void FixedUpdate()
