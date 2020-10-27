@@ -22,9 +22,17 @@ public class PlayerController : MonoBehaviour {
 
 		if (input.sqrMagnitude > 1)
 			input.Normalize();
+
+		LookAtMouse();
 	}
 
 	void FixedUpdate() {
 		rb2D.velocity = input * speed;
+	}
+
+	void LookAtMouse()
+	{
+		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
 	}
 }
