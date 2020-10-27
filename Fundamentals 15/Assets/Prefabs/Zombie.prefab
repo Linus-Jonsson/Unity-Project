@@ -131,12 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7d5fd8af7383043b1ead3afbe0ec69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  deathVFX: {fileID: 0}
+  startHealth: 3
+  deathVFX: {fileID: 5916859378061899651, guid: 223a6dd1e8dd6f04b96fc091d434b37c, type: 3}
   spriteArray:
   - {fileID: -2636313172280219059, guid: 7907a48997d89104c9cc65cd4a6ae2d2, type: 3}
   - {fileID: 3560902887738871759, guid: 7907a48997d89104c9cc65cd4a6ae2d2, type: 3}
   hurtSound: {fileID: 8300000, guid: fa243c858d877e644a66feff1f4a5509, type: 3}
+  deathSound: {fileID: 8300000, guid: b2495d4bed7b8b44eb679aaae02fdde3, type: 3}
 --- !u!114 &1740932224799773478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  isRescued: 0
   speed: 3
 --- !u!50 &1740932224799773473
 Rigidbody2D:

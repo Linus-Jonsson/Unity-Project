@@ -7,7 +7,7 @@ public class HumanRescue : MonoBehaviour {
 	private int savedHumans = 0;
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("Human")) return;
+		if (!other.CompareTag("Human")) return;
 		savedHumans++;
 
 		HumanController controller = other.GetComponent<HumanController>();
