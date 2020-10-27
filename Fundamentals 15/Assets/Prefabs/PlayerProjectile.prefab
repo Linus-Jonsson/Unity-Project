@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffekt: {fileID: 5916859378061899651, guid: 8e97a9a5eb1383144b2d276d193295d6, type: 3}
-  hitZombieSound: {fileID: 8300000, guid: fa243c858d877e644a66feff1f4a5509, type: 3}
+  hitNotZombieSound: {fileID: 8300000, guid: c98a8d698cb60984293474054802bf47, type: 3}
 --- !u!50 &7198048805882586881
 Rigidbody2D:
   serializedVersion: 4

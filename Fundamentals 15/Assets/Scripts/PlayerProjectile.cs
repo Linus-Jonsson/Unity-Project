@@ -6,7 +6,7 @@ public class PlayerProjectile : MonoBehaviour
 {
     public GameObject hitEffekt;
     Rigidbody2D rb;
-    public AudioClip hitZombieSound;
+    public AudioClip hitNotZombieSound;
     AudioSource audioSource;
     void Start()
     {
@@ -33,16 +33,18 @@ public class PlayerProjectile : MonoBehaviour
         transform.parent = collision.transform;
         
         if (tag == "Zombie")
-        {
-            audioSource.clip = hitZombieSound;
-            audioSource.Play();
+        {        
             ContactPoint2D contact = collision.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Instantiate(hitEffekt, contact.point, rot);
             collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
         }
         else
+        {
+            audioSource.clip = hitNotZombieSound;
+            audioSource.Play();
             Destroy(gameObject, 10f); //destory ifall den ej krocka med zombie
+        }
 
     }
 }
