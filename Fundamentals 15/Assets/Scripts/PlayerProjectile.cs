@@ -6,15 +6,17 @@ public class PlayerProjectile : MonoBehaviour
 {
     public GameObject hitEffekt;
     Rigidbody2D rb;
-    
+    public AudioClip hitNotZombieSound;
+    AudioSource audioSource;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        if (!GetComponent<SpriteRenderer>().isVisible)
+        if (!transform.GetChild(0).GetComponent<SpriteRenderer>().isVisible)
         {
             Destroy(gameObject);
         }
@@ -29,13 +31,20 @@ public class PlayerProjectile : MonoBehaviour
         Destroy(GetComponent<Collider2D>());
         Destroy(GetComponent<TrailRenderer>());
         transform.parent = collision.transform;
+        
+        if (tag == "Zombie")
+        {        
+            ContactPoint2D contact = collision.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Instantiate(hitEffekt, contact.point, rot);
+            collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
+        }
+        else
+        {
+            audioSource.clip = hitNotZombieSound;
+            audioSource.Play();
+            Destroy(gameObject, 10f); //destory ifall den ej krocka med zombie
+        }
 
-        //if tag = zombie?
-        ContactPoint2D contact = collision.contacts[0];
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        Instantiate(hitEffekt, contact.point, rot);
-
-        //om collison tag = Zombie
-        //Zombie.cure
     }
 }

@@ -17,9 +17,13 @@ public class PlayerShoot : MonoBehaviour
     public int maxProjectiles = 6;
     private int currentAmountOfProjectiles;
 
+    public AudioClip shootSound;
+    AudioSource audioSource;
+
     private void Start()
     {
         currentAmountOfProjectiles = maxProjectiles;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -27,6 +31,9 @@ public class PlayerShoot : MonoBehaviour
         if(currentAmountOfProjectiles > 0 && Time.time > nextFire && Input.GetMouseButtonDown(0)){
             nextFire = fireRate + Time.time;          
             currentAmountOfProjectiles -= 1;
+
+            audioSource.clip = shootSound;
+            audioSource.Play();
 
             GameObject shootEffektClone = Instantiate(shootEffekt, shootPoint.position, shootEffekt.transform.rotation);
             SpreadShoot(1); 

@@ -68,7 +68,9 @@ public class PlayerSword : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var tag = collision.gameObject.tag;
-       
+        if (tag == "Zombie")
+            collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
+
         foreach (ContactPoint2D contact in collision.contacts)
         {
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
