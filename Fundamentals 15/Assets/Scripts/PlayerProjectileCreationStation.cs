@@ -5,16 +5,20 @@ using TMPro;
 
 public class PlayerProjectileCreationStation : MonoBehaviour
 {
+    public AudioClip craftSound;
+    AudioSource audioSource;
     public GameObject craftText;
     private Transform textSpawnPos;
     PlayerShoot playerShoot;
-    [SerializeField]
     private bool canCraft = false;
+    private bool isCrafting = false;
     void Start()
     {
         if(GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<PlayerShoot>() != null)
             playerShoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).GetComponent<PlayerShoot>();
         textSpawnPos = GameObject.FindGameObjectWithTag("Player").transform;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -23,14 +27,28 @@ public class PlayerProjectileCreationStation : MonoBehaviour
         {
             if (playerShoot.CanCraft())
             {
-                playerShoot.AddProjetiles(1);
-                SpawnText("Projectile +1");
+                if(!isCrafting)
+                    StartCoroutine(Craft());        
             }
             else
             {
                 SpawnText("Full inventory"); //GItHub Test
             }
         }
+    }
+
+    IEnumerator Craft()
+    {
+        isCrafting = true;
+
+        SpawnText("Crafting");
+        audioSource.clip = craftSound;
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        playerShoot.AddProjetiles(1);
+        SpawnText("Projectile +1");
+
+        isCrafting = false;
     }
 
     void SpawnText(string text)
