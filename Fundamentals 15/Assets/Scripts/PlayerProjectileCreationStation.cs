@@ -28,7 +28,7 @@ public class PlayerProjectileCreationStation : MonoBehaviour
             }
             else
             {
-                SpawnText("Full inventory");
+                SpawnText("Full inventory"); //GItHub Test
             }
         }
     }
