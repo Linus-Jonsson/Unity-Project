@@ -35,10 +35,11 @@ public class ZombieHealth : MonoBehaviour
             return;
 
         GameObject deathVFXObject = Instantiate(deathVFX, transform.position, deathVFX.transform.rotation);
+        
         var deathAS = deathVFXObject.GetComponent<AudioSource>();
         deathAS.clip = deathSound;
         deathAS.Play();
-        Destroy(deathVFXObject, deathAS.clip.length);
+
         Destroy(gameObject);
 
     }
