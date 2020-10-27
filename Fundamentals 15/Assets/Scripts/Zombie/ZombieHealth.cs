@@ -7,6 +7,7 @@ public class ZombieHealth : MonoBehaviour
 {
     [SerializeField] int health = 1;
     [SerializeField] GameObject deathVFX; // ToDo - Create/add deathVFX
+    [SerializeField] Sprite[] spriteArray;
     public AudioClip hurtSound;
     AudioSource audioSource;
 
@@ -22,7 +23,7 @@ public class ZombieHealth : MonoBehaviour
 
         if (health <= 0) {
             TriggerDeathVFX();
-            // ToDo - Function that makes zombie into human
+            HumanTransformation();
         }
     }
 
@@ -32,5 +33,14 @@ public class ZombieHealth : MonoBehaviour
             return;
         GameObject deathVFXObject = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(deathVFXObject, 1f);
+    }
+    
+    void HumanTransformation()
+    {
+            GetComponentInChildren<SpriteRenderer>().sprite = spriteArray[1];
+            GetComponent<ZombieMovement>().enabled = false;
+            GetComponent<HumanController>().enabled = true;
+            tag = "Human";
+            name = "Human";
     }
 }
