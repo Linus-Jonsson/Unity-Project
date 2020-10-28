@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerSword : MonoBehaviour
 {
-	public float swingSpeed = 6;
-	public float swingAngle1 = 90;
+    public float swingSpeed = 6;
+    public float swingAngle1 = 90;
     public float swingAngle2 = 0;
     public bool goBack = false;
 
     public AudioClip swordWing;
     public GameObject zombieSlashEffect;
+    public GameObject rockHit;
     private AudioSource audioSource;
 
-	bool isSwinging = false;
+    bool isSwinging = false;
 
     private void Start()
     {
@@ -21,14 +22,14 @@ public class PlayerSword : MonoBehaviour
     }
 
     void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space) && !isSwinging)
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isSwinging)
         {
             audioSource.clip = swordWing;
             audioSource.Play();
-			StartCoroutine(Swong(swingSpeed, swingAngle1, swingAngle2, goBack));
-		}
-	}
+            StartCoroutine(Swong(swingSpeed, swingAngle1, swingAngle2, goBack));
+        }
+    }
 
     bool swingRight = true;
     //lmao kanske borde animeras men blev triggrad som satan på unity animator så gjorde animationen i kod :D
@@ -73,13 +74,16 @@ public class PlayerSword : MonoBehaviour
     {
         var tag = collision.gameObject.tag;
         if (tag == "Zombie")
+        {
             collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
 
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-            Vector3 pos = contact.point;
-            GameObject zombieEffekt = Instantiate(zombieSlashEffect, pos, rot);
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+                Vector3 pos = contact.point;
+                GameObject zombieEffekt = Instantiate(zombieSlashEffect, pos, rot);
+            }
+            return;
         }
     }
 }
