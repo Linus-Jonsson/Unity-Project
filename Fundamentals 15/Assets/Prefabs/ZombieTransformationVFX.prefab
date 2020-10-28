@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2335750166061990685}
   - component: {fileID: 8378984897561203271}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: ZombieTransformationVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 0}
-  m_Color: {r: 0.13140954, g: 0.6981132, b: 0, a: 1}
+  m_Color: {r: 0.18019924, g: 0.9433962, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HumanHealth : MonoBehaviour {
+	[SerializeField] GameObject transformationVFX;
 	[SerializeField] private GameObject zombie;
 	[SerializeField] private int startHealth = 1;
 
@@ -21,6 +22,7 @@ public class HumanHealth : MonoBehaviour {
 	}
 
 	private void ZombieTransformation() {
+		Instantiate(transformationVFX, transform.position, transform.rotation);
 		Instantiate(zombie, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}
