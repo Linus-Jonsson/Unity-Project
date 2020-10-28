@@ -23,7 +23,7 @@ public class PlayerProjectileCreationStation : MonoBehaviour
 
     private void Update()
     {
-        if (canCraft && Input.GetKeyDown(KeyCode.Space))
+        if (canCraft && Input.GetKeyDown(KeyCode.E))
         {
             if (playerShoot.CanCraft())
             {
