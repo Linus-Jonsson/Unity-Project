@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773479, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.629301
@@ -834,6 +838,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 673011302615581511, guid: d7665e809ff0cb145b0efb117e945783, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 673011303437919880, guid: d7665e809ff0cb145b0efb117e945783, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

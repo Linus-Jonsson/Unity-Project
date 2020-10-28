@@ -22,28 +22,33 @@ public class PlayerProjectile : MonoBehaviour
         }
     }
 
+    bool hasHit = false;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var tag = collision.gameObject.tag;
-
-        rb.velocity = Vector2.zero;
-        Destroy(rb);
-        Destroy(GetComponent<Collider2D>());
-        Destroy(GetComponent<TrailRenderer>());
-        transform.parent = collision.transform;
-        
-        if (tag == "Zombie")
-        {        
-            ContactPoint2D contact = collision.contacts[0];
-            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-            Instantiate(hitEffekt, contact.point, rot);
-            collision.gameObject.GetComponent<ZombieHealth>().HumanTransformation();
-        }
-        else
+        if (hasHit == false) //hade bug med att den träffa flera samtidigt
         {
-            audioSource.clip = hitNotZombieSound;
-            audioSource.Play();
-            Destroy(gameObject, 10f); //destory ifall den ej krocka med zombie
+            hasHit = true;
+            Destroy(GetComponent<Collider2D>());
+            rb.velocity = Vector2.zero;
+            Destroy(rb);
+            Destroy(GetComponent<TrailRenderer>());
+            transform.parent = collision.transform;
+
+            if (tag == "Zombie")
+            {
+                ContactPoint2D contact = collision.contacts[0];
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+                Instantiate(hitEffekt, contact.point, rot);
+                collision.gameObject.GetComponent<ZombieHealth>().HumanTransformation();
+            }
+            else
+            {
+                audioSource.clip = hitNotZombieSound;
+                audioSource.Play();
+                Destroy(gameObject, 10f); //destory ifall den ej krocka med zombie
+            }
+
         }
 
     }
