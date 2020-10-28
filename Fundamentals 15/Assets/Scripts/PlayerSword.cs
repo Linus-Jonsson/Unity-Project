@@ -35,6 +35,7 @@ public class PlayerSword : MonoBehaviour
     IEnumerator Swong(float swingSpeed, float swingAngle = 90, float swingAngle2 = -90, bool returnSword = false)
     {
         isSwinging = true;
+        GetComponent<Collider2D>().enabled = true;
 
         var point1 = transform.forward * swingAngle;
         var point2 = transform.forward * -swingAngle2;
@@ -60,7 +61,10 @@ public class PlayerSword : MonoBehaviour
         if (returnSword)
             StartCoroutine(Swong(swingSpeed, swingAngle, swingAngle2, false));
         else
+        {
             isSwinging = false;
+            GetComponent<Collider2D>().enabled = false;
+        }
 
         yield return new WaitForEndOfFrame();
     }
