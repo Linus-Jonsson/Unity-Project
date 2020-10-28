@@ -9,21 +9,22 @@ public class ZombieMovement : MonoBehaviour
 	[SerializeField] private int speed = 1;
 	private Rigidbody2D rb2D;
 	private Vector2 direction;
+	private Transform player;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
-
-		if (Random.Range(0, 100) < huntPlayerChance)
-			HuntPlayer();
-		else
-			HuntRandomHuman();
+		player = GameObject.FindWithTag("Player").transform;
+		FindTarget();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (!target)
+			FindTarget();
+
 		direction = target.position - transform.position;
 		direction.Normalize();
 
@@ -31,8 +32,15 @@ public class ZombieMovement : MonoBehaviour
 		transform.rotation = rotation;
 	}
 
+	private void FindTarget() {
+		if (Random.Range(0, 100) < huntPlayerChance)
+			HuntPlayer();
+		else
+			HuntRandomHuman();
+	}
+
 	private void HuntPlayer() {
-		target = GameObject.FindWithTag("Player").transform;
+		target = player;
 	}
 
 	private void HuntRandomHuman() {
