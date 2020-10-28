@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 1740932224799773478}
   - component: {fileID: 8308331953695037242}
   - component: {fileID: 1740932224799773473}
-  - component: {fileID: 1740932224799773472}
+  - component: {fileID: 7152846424849621116}
+  - component: {fileID: 220290452857619824}
   - component: {fileID: -1478330732043338083}
   m_Layer: 0
   m_Name: Zombie
@@ -187,8 +188,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1740932224799773472
-CircleCollider2D:
+--- !u!70 &7152846424849621116
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -200,9 +201,25 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.06}
+  m_Size: {x: 1.0194556, y: 0.46145803}
+  m_Direction: 1
+--- !u!58 &220290452857619824
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740932224799773477}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 2.5
 --- !u!82 &-1478330732043338083
 AudioSource:
   m_ObjectHideFlags: 0
