@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Zombie
   - Human
+  - AmmoUi
   layers:
   - Default
   - TransparentFX
