@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1740932224799773478, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773479, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.24
@@ -2866,8 +2870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e57b874cc0d94c4f9cc60bb2437c7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDuration: 0
-  shakeAmount: 0.06
 --- !u!1001 &642884823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2946,6 +2948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044baa214e04d744b9bda72955e0a4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1001 &793884444
 PrefabInstance:
   m_ObjectHideFlags: 0
