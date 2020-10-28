@@ -7,8 +7,9 @@ public class ZombieHealth : MonoBehaviour
 {
 	public int startHealth = 3;
 	private int currentHealth;
-	[SerializeField] GameObject deathVFX; // ToDo - Create/add deathVFX
-	[SerializeField] private GameObject human;
+	[SerializeField] GameObject deathVFX;
+	[SerializeField] GameObject transformationVFX;
+	[SerializeField] GameObject human;
 	public AudioClip hurtSound;
 	public AudioClip deathSound;
 	AudioSource audioSource;
@@ -44,6 +45,7 @@ public class ZombieHealth : MonoBehaviour
 	}
 	
 	public void HumanTransformation() {
+		Instantiate(transformationVFX, transform.position, transform.rotation);
 		Instantiate(human, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}

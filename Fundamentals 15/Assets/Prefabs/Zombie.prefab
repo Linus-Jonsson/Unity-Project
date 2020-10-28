@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 3
   deathVFX: {fileID: 5916859378061899651, guid: 223a6dd1e8dd6f04b96fc091d434b37c, type: 3}
+  transformationVFX: {fileID: 2335750166061990686, guid: d32f9d2209689f346b3c09ae4a5a8f47, type: 3}
   human: {fileID: 3040224116180420888, guid: 943b90ceb40d1524d9432655b0887ed7, type: 3}
   hurtSound: {fileID: 8300000, guid: fa243c858d877e644a66feff1f4a5509, type: 3}
   deathSound: {fileID: 8300000, guid: b2495d4bed7b8b44eb679aaae02fdde3, type: 3}
@@ -164,6 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ddd49c3361404b9fb96f59dddf587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  knockbackForce: 2
 --- !u!50 &1740932224799773473
 Rigidbody2D:
   serializedVersion: 4
