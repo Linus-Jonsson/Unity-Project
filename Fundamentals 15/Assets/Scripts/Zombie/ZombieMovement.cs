@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ZombieMovement : MonoBehaviour
 {
+  public Transform target;
 	[SerializeField] private int huntPlayerChance = 50;
 	[SerializeField] private int speed = 1;
-  private Transform target;
 	private Rigidbody2D rb2D;
 	private Vector2 direction;
 
@@ -39,6 +39,7 @@ public class ZombieMovement : MonoBehaviour
 		GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
 		if (humans.Length <= 0) {
 			HuntPlayer();
+			return;
 		}
 
 		GameObject human = humans[Random.Range(0, humans.Length - 1)];
