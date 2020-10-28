@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
 		if (input.sqrMagnitude > 1)
 			input.Normalize();
