@@ -14,7 +14,7 @@ public class CameraPositionLocking : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	private void Update() {
+	private void LateUpdate() {
 		Vector3 offset = target.position;
 		offset.z = startZ;
 
