@@ -31,13 +31,13 @@ public class ShootWeapon : MonoBehaviour
     {
         //optimisera?
         if (tapFire)
-        {
-            if (isInPlayerHands && Input.GetMouseButtonDown(1) && Time.time > nextFire)
+        { 
+            if (isInPlayerHands && Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
                 Base();
         }
         else
         {
-            if (isInPlayerHands && Input.GetMouseButton(1) && Time.time > nextFire)
+            if (isInPlayerHands && Input.GetKey(KeyCode.Space) && Time.time > nextFire)
                 Base();
         }
     }
@@ -94,7 +94,7 @@ public class ShootWeapon : MonoBehaviour
                     child.transform.rotation = pos.rotation;
                     child.transform.parent = null;
                     child.GetComponent<ShootWeapon>().isInPlayerHands = false;
-
+                    child.GetComponent<Collider2D>().enabled = true;
                     ChangeWeapon(newPos);
                 }
                 else
@@ -110,6 +110,7 @@ public class ShootWeapon : MonoBehaviour
         gameObject.transform.rotation = newTransform.rotation;
         gameObject.transform.parent = newTransform.transform;
         isInPlayerHands = true;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     IEnumerator PickUpDelay(float time)
