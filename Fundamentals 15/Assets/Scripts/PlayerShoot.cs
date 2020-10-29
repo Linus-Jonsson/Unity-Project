@@ -19,11 +19,12 @@ public class PlayerShoot : MonoBehaviour
 
     public AudioClip shootSound;
     AudioSource audioSource;
-
+    PlayerAmmoUi ammoUi;
     private void Start()
     {
         currentAmountOfProjectiles = maxProjectiles;
         audioSource = GetComponent<AudioSource>();
+        ammoUi = GameObject.FindGameObjectWithTag("AmmoUi").GetComponent<PlayerAmmoUi>();
     }
 
     void Update()
@@ -31,7 +32,7 @@ public class PlayerShoot : MonoBehaviour
         if(currentAmountOfProjectiles > 0 && Time.time > nextFire && Input.GetMouseButtonDown(0)){
             nextFire = fireRate + Time.time;          
             currentAmountOfProjectiles -= 1;
-
+            ammoUi.RemoveOneUi();
             audioSource.clip = shootSound;
             audioSource.Play();
 
@@ -61,7 +62,13 @@ public class PlayerShoot : MonoBehaviour
 
     public void AddProjetiles(int amount)
     {
-        currentAmountOfProjectiles += amount;    
+        currentAmountOfProjectiles += amount;
+        ammoUi.AddOneUi();
+    }
+
+    public int GetCurrentAmount()
+    {
+        return currentAmountOfProjectiles;
     }
 
     public bool CanCraft()
