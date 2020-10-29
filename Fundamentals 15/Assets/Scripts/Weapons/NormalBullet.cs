@@ -9,6 +9,7 @@ public class NormalBullet : MonoBehaviour
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
     [HideInInspector]
+    public float dmg = 1;
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class NormalBullet : MonoBehaviour
         var tag = collision.gameObject.tag;
         if (tag == "Zombie")
         {
-            collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
+            collision.gameObject.GetComponent<ZombieHealth>().DealDamage(dmg);
         }
 
         StopCoroutine(explodeBullet);

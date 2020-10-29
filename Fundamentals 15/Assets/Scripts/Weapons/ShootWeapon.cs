@@ -12,6 +12,7 @@ public class ShootWeapon : MonoBehaviour
     public float aliveTime;
     public float fireRate = 0.2f;
     private float nextFire = 0;
+    public float dmgPerBullet = 1f;
 
     public float minPitch = 0.7f;
     public float maxPitch = 1.8f;
@@ -31,13 +32,13 @@ public class ShootWeapon : MonoBehaviour
     {
         //optimisera?
         if (tapFire)
-        {
-            if (isInPlayerHands && Input.GetMouseButtonDown(1) && Time.time > nextFire)
+        { 
+            if (isInPlayerHands && Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
                 Base();
         }
         else
         {
-            if (isInPlayerHands && Input.GetMouseButton(1) && Time.time > nextFire)
+            if (isInPlayerHands && Input.GetKey(KeyCode.Space) && Time.time > nextFire)
                 Base();
         }
     }
@@ -48,6 +49,7 @@ public class ShootWeapon : MonoBehaviour
         Shoot();
         PlayAudioClip(shootSound);
         GameObject muzzleClone = Instantiate(muzzleFlash, shootPoint.position, muzzleFlash.transform.rotation);
+        muzzleClone.transform.parent = shootPoint.transform;
     }
     protected virtual void Shoot()
     {
@@ -56,14 +58,15 @@ public class ShootWeapon : MonoBehaviour
 
     protected virtual void SetVelocity(GameObject bullet)
     {
-        bullet.GetComponent<NormalBullet>().ExplodeAfter(aliveTime);
+        NormalBullet normalBullet = bullet.GetComponent<NormalBullet>();
+        normalBullet.ExplodeAfter(aliveTime);
+        normalBullet.dmg = dmgPerBullet;
         Rigidbody2D cloneRb = bullet.GetComponent<Rigidbody2D>();
-
+        cloneRb.velocity = bullet.transform.up.normalized * launchForce;
         //tyckte detta va smart. Stoppar att de åker igenom saker ifall man skjuter för snabbt
         if (launchForce >= 10)
             cloneRb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-        cloneRb.velocity = bullet.transform.up.normalized * launchForce;
     }
 
     protected void PlayAudioClip(AudioClip clip, bool pitch = true)
@@ -94,7 +97,7 @@ public class ShootWeapon : MonoBehaviour
                     child.transform.rotation = pos.rotation;
                     child.transform.parent = null;
                     child.GetComponent<ShootWeapon>().isInPlayerHands = false;
-
+                    child.GetComponent<Collider2D>().enabled = true;
                     ChangeWeapon(newPos);
                 }
                 else
@@ -110,6 +113,7 @@ public class ShootWeapon : MonoBehaviour
         gameObject.transform.rotation = newTransform.rotation;
         gameObject.transform.parent = newTransform.transform;
         isInPlayerHands = true;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     IEnumerator PickUpDelay(float time)

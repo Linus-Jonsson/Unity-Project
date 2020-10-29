@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
+    //syringe
     public GameObject hitEffekt;
     Rigidbody2D rb;
     public AudioClip hitNotZombieSound;

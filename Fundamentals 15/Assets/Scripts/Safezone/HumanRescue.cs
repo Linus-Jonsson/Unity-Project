@@ -63,5 +63,6 @@ public class HumanRescue : MonoBehaviour {
 			Destroy(escortedHumans[i]);
 			escortedHumans[i] = null;
 		}
+		incomingChopper = false;
 	}
 }
