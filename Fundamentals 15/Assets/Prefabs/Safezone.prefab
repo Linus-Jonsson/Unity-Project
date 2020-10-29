@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 858389360708658648}
   - component: {fileID: 858389360708658649}
   - component: {fileID: 858389360708658650}
-  - component: {fileID: 858389360708658631}
+  - component: {fileID: 6568983109784021620}
   m_Layer: 0
   m_Name: Safezone
-  m_TagString: Untagged
+  m_TagString: Safezone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: -898762537
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5a3055192b6543468fd9bfe264433b0, type: 3}
-  m_Color: {r: 0.9433962, g: 0.89457345, b: 0.0658597, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6eddaec1ecf9fc246b7966c7392ce675, type: 3}
+  m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,8 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaeef21ed553174a8f45c0df94bcd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &858389360708658631
-BoxCollider2D:
+  chopper: {fileID: 2422742550691368357, guid: b1425ab9c39a3fc4ebde1f892326bc1d, type: 3}
+  maxRescueSpots: 10
+--- !u!58 &6568983109784021620
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,15 +112,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
