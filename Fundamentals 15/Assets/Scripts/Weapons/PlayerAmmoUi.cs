@@ -6,12 +6,18 @@ using UnityEngine.UI;
 public class PlayerAmmoUi : MonoBehaviour
 {
     public Image image;
+    public Image backroundSpruta;
     public float xDist;
     private List<Image> images = new List<Image>();
     private PlayerShoot playerShoot;
     void Start()
     {
         playerShoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).GetComponent<PlayerShoot>();
+        for (int i = 0; i < playerShoot.maxProjectiles; i++)
+        {
+            Image backRoundsSpruta = Instantiate(backroundSpruta, GetComponent<RectTransform>().position + Vector3.right * xDist * i, image.rectTransform.rotation);
+            backRoundsSpruta.rectTransform.SetParent(GetComponent<RectTransform>());
+        }
         for (int i = 0; i < playerShoot.maxProjectiles; i++)
         {
             Image spruta = Instantiate(image, GetComponent<RectTransform>().position + Vector3.right * xDist * i, image.rectTransform.rotation);

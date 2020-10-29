@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShootWeapon : MonoBehaviour
 {
@@ -19,6 +21,8 @@ public class ShootWeapon : MonoBehaviour
     public AudioClip shootSound;
 
     private AudioSource audioSource;
+    private static bool canPickUp = true;
+    private bool isInPlayerHands = false;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -28,12 +32,12 @@ public class ShootWeapon : MonoBehaviour
         //optimisera?
         if (tapFire)
         {
-            if (Input.GetMouseButtonDown(1) && Time.time > nextFire)
+            if (isInPlayerHands && Input.GetMouseButtonDown(1) && Time.time > nextFire)
                 Base();
         }
-        else 
+        else
         {
-            if(Input.GetMouseButton(1) && Time.time > nextFire)
+            if (isInPlayerHands && Input.GetMouseButton(1) && Time.time > nextFire)
                 Base();
         }
     }
@@ -60,7 +64,7 @@ public class ShootWeapon : MonoBehaviour
         if (launchForce >= 10)
             cloneRb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-        cloneRb.velocity = bullet.transform.up.normalized * launchForce; //transform.up kan va vad som.
+        cloneRb.velocity = bullet.transform.up.normalized * launchForce;
     }
 
     protected void PlayAudioClip(AudioClip clip, bool pitch = true)
@@ -71,5 +75,47 @@ public class ShootWeapon : MonoBehaviour
             audioSource.pitch = Random.Range(minPitch, maxPitch);
         }
         audioSource.Play();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (canPickUp)
+            {
+                canPickUp = false;
+                StartCoroutine(PickUpDelay(1));
+                var newPos = GameObject.FindGameObjectWithTag("WeaponPoint2").transform;
+                var pos = gameObject.transform;
+
+                if (newPos.childCount > 0)
+                {
+                    Transform child = newPos.GetChild(0);
+                    child.transform.position = pos.position;
+                    child.transform.rotation = pos.rotation;
+                    child.transform.parent = null;
+                    child.GetComponent<ShootWeapon>().isInPlayerHands = false;
+
+                    ChangeWeapon(newPos);
+                }
+                else
+                {
+                    ChangeWeapon(newPos);                    
+                }
+            }
+        }
+    }
+    void ChangeWeapon(Transform newTransform)
+    {
+        gameObject.transform.position = newTransform.position;
+        gameObject.transform.rotation = newTransform.rotation;
+        gameObject.transform.parent = newTransform.transform;
+        isInPlayerHands = true;
+    }
+
+    IEnumerator PickUpDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        canPickUp = true;
     }
 }

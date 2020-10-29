@@ -11,15 +11,14 @@ public class BurstRifle : ShootWeapon
     }
     public IEnumerator FireBurst(GameObject bulletPrefab, int burstSize, float rateOfFire)
     {
-        float bulletDelay = rateOfFire;
-        Vector3 point = shootPoint.transform.position;
+        float bulletDelay = rateOfFire;      
         for (int i = 0; i < burstSize; i++)
         {
             if (i > 0)
                 PlayAudioClip(shootSound);
 
-            Instantiate(muzzleFlash, point, muzzleFlash.transform.rotation);
-            GameObject bulletClone = Instantiate(bulletPrefab, point, transform.rotation);
+            Instantiate(muzzleFlash, shootPoint.position, muzzleFlash.transform.rotation);
+            GameObject bulletClone = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
             SetVelocity(bulletClone);
 
 
