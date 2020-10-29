@@ -12,6 +12,7 @@ public class ShootWeapon : MonoBehaviour
     public float aliveTime;
     public float fireRate = 0.2f;
     private float nextFire = 0;
+    public float dmgPerBullet = 1f;
 
     public float minPitch = 0.7f;
     public float maxPitch = 1.8f;
@@ -57,7 +58,9 @@ public class ShootWeapon : MonoBehaviour
 
     protected virtual void SetVelocity(GameObject bullet)
     {
-        bullet.GetComponent<NormalBullet>().ExplodeAfter(aliveTime);
+        NormalBullet normalBullet = bullet.GetComponent<NormalBullet>();
+        normalBullet.ExplodeAfter(aliveTime);
+        normalBullet.dmg = dmgPerBullet;
         Rigidbody2D cloneRb = bullet.GetComponent<Rigidbody2D>();
         cloneRb.velocity = bullet.transform.up.normalized * launchForce;
         //tyckte detta va smart. Stoppar att de åker igenom saker ifall man skjuter för snabbt

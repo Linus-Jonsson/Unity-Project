@@ -6,7 +6,7 @@ using UnityEngine;
 public class ZombieHealth : MonoBehaviour
 {
 	public int startHealth = 3;
-	private int currentHealth;
+	private float currentHealth;
 	[SerializeField] GameObject deathVFX;
 	[SerializeField] GameObject transformationVFX;
 	[SerializeField] GameObject human;
@@ -24,7 +24,7 @@ public class ZombieHealth : MonoBehaviour
 		renderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
 		startColor = renderer.color;
 	}
-	public void DealDamage(int damage)
+	public void DealDamage(float damage)
 	{
 		currentHealth -= damage;
 		if (currentHealth <= 0) {
