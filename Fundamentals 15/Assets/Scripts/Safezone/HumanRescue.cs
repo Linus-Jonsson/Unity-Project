@@ -24,8 +24,10 @@ public class HumanRescue : MonoBehaviour {
 		HumanController controller = other.GetComponent<HumanController>();
 		controller.isRescued = true;
 
-		if (controller.target.CompareTag("Player"))
-			controller.target = transform;
+		if (controller.target.CompareTag("Waypoint"))
+			Destroy(controller.target.gameObject);
+
+		controller.target = transform;
 
 		if (!incomingChopper)
 			CallChopper();
@@ -54,11 +56,6 @@ public class HumanRescue : MonoBehaviour {
 		for (int i = 0; i < escortedHumans.Length; i++) {
 			if (!escortedHumans[i])
 				continue;
-
-			GameObject waypoint = escortedHumans[i].GetComponent<HumanController>().target.gameObject;
-
-			if (!waypoint.CompareTag("Safezone"))
-				Destroy(waypoint);
 
 			Destroy(escortedHumans[i]);
 			escortedHumans[i] = null;

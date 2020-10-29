@@ -24,6 +24,10 @@ public class HumanHealth : MonoBehaviour {
 	private void ZombieTransformation() {
 		Instantiate(transformationVFX, transform.position, transform.rotation);
 		Instantiate(zombie, transform.position, transform.rotation);
+
+		HumanController controller = GetComponent<HumanController>();
+		if (controller.target.CompareTag("Waypoint"))
+			Destroy(controller.target.gameObject);
 		Destroy(gameObject);
 	}
 }
