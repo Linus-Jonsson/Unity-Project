@@ -27,16 +27,18 @@ public class HumanController : MonoBehaviour {
 			Destroy(target.gameObject);
 
 		Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
-		target = new GameObject().transform;
+		GameObject waypoint = new GameObject("Waypoint");
 
-		target.position = mousePosition;
+		waypoint.transform.position = mousePosition;
+		target = waypoint.transform;
 
 		isOrdered = true;
 	}
 
 	private void FixedUpdate() {
 		Vector2 direction = target.position - transform.position;
-		direction.Normalize();
+		if (direction.sqrMagnitude > 1)
+			direction.Normalize();
 
 		if (isOrdered || !isCloseToHuman || isRescued)
 			rb2D.velocity = direction * speed;

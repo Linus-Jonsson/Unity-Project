@@ -4,16 +4,64 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HumanRescue : MonoBehaviour {
-	private int savedHumans = 0;
+	[SerializeField] private GameObject chopper;
+	[SerializeField] private int maxRescueSpots = 10;
+
+	private bool incomingChopper = false;
+	private GameObject[] escortedHumans;
+
+	private void Start() {
+		escortedHumans = new GameObject[maxRescueSpots];
+	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (!other.CompareTag("Human")) return;
-		savedHumans++;
+		if (!other.CompareTag("Human"))
+			return;
+
+		if (!AssignHumanToChopper(other.gameObject))
+			return;
 
 		HumanController controller = other.GetComponent<HumanController>();
 		controller.isRescued = true;
-		controller.target = transform;
 
-		Destroy(other.gameObject, 5);
+		if (controller.target.CompareTag("Player"))
+			controller.target = transform;
+
+		if (!incomingChopper)
+			CallChopper();
+	}
+
+	private bool AssignHumanToChopper(GameObject human) {
+		for (int i = 0; i < escortedHumans.Length; i++) {
+			if (escortedHumans[i] != null)
+				continue;
+
+			escortedHumans[i] = human;
+			return true;
+		}
+
+		return false;
+	}
+
+	private void CallChopper() {
+		incomingChopper = true;
+
+		GameObject calledChopper = Instantiate(chopper, transform.position, Quaternion.identity);
+		calledChopper.GetComponent<ChopperController>().rescuePoint = transform;
+	}
+
+	public void RescueHumans() {
+		for (int i = 0; i < escortedHumans.Length; i++) {
+			if (!escortedHumans[i])
+				continue;
+
+			GameObject waypoint = escortedHumans[i].GetComponent<HumanController>().target.gameObject;
+
+			if (!waypoint.CompareTag("Safezone"))
+				Destroy(waypoint);
+
+			Destroy(escortedHumans[i]);
+			escortedHumans[i] = null;
+		}
 	}
 }

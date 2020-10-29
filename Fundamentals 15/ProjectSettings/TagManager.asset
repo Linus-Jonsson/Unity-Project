@@ -8,6 +8,7 @@ TagManager:
   - Human
   - AmmoUi
   - WeaponPoint2
+  - Safezone
   layers:
   - Default
   - TransparentFX
