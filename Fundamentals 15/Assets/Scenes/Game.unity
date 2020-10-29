@@ -134,6 +134,22 @@ PrefabInstance:
       propertyPath: startHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_Name
       value: Zombie (6)
@@ -207,6 +223,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547396, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547397, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547397, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547398, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547398, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547398, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547398, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_Name
       value: Zombie (5)
@@ -2877,6 +2937,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_Name
       value: Zombie (1)
@@ -2948,6 +3024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044baa214e04d744b9bda72955e0a4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  huntPlayerChance: 50
   speed: 1
 --- !u!1001 &793884444
 PrefabInstance:
@@ -3837,6 +3915,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_Name
       value: Zombie (4)
@@ -22291,6 +22385,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_Name
       value: Zombie (3)
@@ -22352,6 +22462,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -25182,6 +25308,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.g
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270587367032117515, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: hurtColor.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547398, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547398, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740932224713547398, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
       propertyPath: m_Name
       value: Zombie (2)

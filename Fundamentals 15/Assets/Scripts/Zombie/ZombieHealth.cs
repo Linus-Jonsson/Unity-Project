@@ -12,11 +12,16 @@ public class ZombieHealth : MonoBehaviour
 	public AudioClip hurtSound;
 	public AudioClip deathSound;
 	AudioSource audioSource;
+	SpriteRenderer renderer;
+	Color startColor;
+	public Color hurtColor;
 
 	private void Start()
 	{
 		audioSource = GetComponent<AudioSource>();
 		currentHealth = startHealth;
+		renderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+		startColor = renderer.color;
 	}
 	public void DealDamage(int damage)
 	{
@@ -25,6 +30,7 @@ public class ZombieHealth : MonoBehaviour
 			TriggerDeathVFX();
 			return;
 		}
+		StartCoroutine(SpriteBlink(hurtColor));
 		audioSource.clip = hurtSound;
 		audioSource.Play();
 	}
@@ -43,6 +49,12 @@ public class ZombieHealth : MonoBehaviour
 		Destroy(gameObject);
 	}
 	
+	IEnumerator SpriteBlink(Color blinkColor, float dur = 0.2f)
+    {
+		renderer.color = blinkColor;
+		yield return new WaitForSeconds(dur);
+		renderer.color = startColor;
+    }
 	public void HumanTransformation() {
 		Instantiate(human, transform.position, transform.rotation);
 		Destroy(gameObject);

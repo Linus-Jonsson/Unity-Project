@@ -137,6 +137,7 @@ MonoBehaviour:
   human: {fileID: 3040224116180420888, guid: 943b90ceb40d1524d9432655b0887ed7, type: 3}
   hurtSound: {fileID: 8300000, guid: fa243c858d877e644a66feff1f4a5509, type: 3}
   deathSound: {fileID: 8300000, guid: b2495d4bed7b8b44eb679aaae02fdde3, type: 3}
+  hurtColor: {r: 0.85882354, g: 0.40784314, b: 0.40784314, a: 1}
 --- !u!114 &1740932224799773478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ddd49c3361404b9fb96f59dddf587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  knockbackForce: 2
 --- !u!50 &1740932224799773473
 Rigidbody2D:
   serializedVersion: 4

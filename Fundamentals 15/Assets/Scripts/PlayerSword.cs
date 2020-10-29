@@ -11,7 +11,6 @@ public class PlayerSword : MonoBehaviour
 
     public AudioClip swordWing;
     public GameObject zombieSlashEffect;
-    public GameObject rockHit;
     private AudioSource audioSource;
 
     bool isSwinging = false;
