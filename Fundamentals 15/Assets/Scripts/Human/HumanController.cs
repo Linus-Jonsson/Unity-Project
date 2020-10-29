@@ -27,7 +27,7 @@ public class HumanController : MonoBehaviour {
 			Destroy(target.gameObject);
 
 		Vector2 mousePosition = playerCamera.ScreenToWorldPoint(Input.mousePosition);
-		GameObject waypoint = new GameObject("Waypoint");
+		GameObject waypoint = new GameObject("Waypoint") {tag = "Waypoint"};
 
 		waypoint.transform.position = mousePosition;
 		target = waypoint.transform;
