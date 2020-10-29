@@ -9,7 +9,7 @@ public class HumanController : MonoBehaviour {
 
 	[SerializeField] private int speed = 2;
 	private Rigidbody2D rb2D;
-	private Camera camera;
+	private Camera playerCamera;
 	private bool isCloseToHuman;
 	private bool isOrdered = false;
 
@@ -18,7 +18,7 @@ public class HumanController : MonoBehaviour {
 	private void Start() {
 		target = GameObject.FindWithTag("Player").transform;
 		rb2D = GetComponent<Rigidbody2D>();
-		camera = Camera.main;
+		playerCamera = Camera.main;
 	}
 
 	private void Update() {
@@ -26,7 +26,7 @@ public class HumanController : MonoBehaviour {
 		if (isOrdered)
 			Destroy(target.gameObject);
 
-		Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+		Vector2 mousePosition = playerCamera.ScreenToWorldPoint(Input.mousePosition);
 		GameObject waypoint = new GameObject("Waypoint");
 
 		waypoint.transform.position = mousePosition;

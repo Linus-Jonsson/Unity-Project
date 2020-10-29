@@ -2,29 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieSpawner : MonoBehaviour
-{
+public class ZombieSpawner : MonoBehaviour {
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 3f;
     [SerializeField] GameObject zombie;
-    bool spawn = true;
+    [SerializeField] private int maxZombies = 10;
 
-    void Start()
-    {
+    bool spawn = true;
+    private GameObject[] spawnedZombies;
+
+    void Start() {
+        spawnedZombies = new GameObject[maxZombies];
+
         StartCoroutine(ZombieSpawn());
     }
 
-    IEnumerator ZombieSpawn()
-    {
+    IEnumerator ZombieSpawn() {
         while (spawn) {
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
-            SpawnZombie();
+            if (spawn)
+                SpawnZombie();
         }
     }
     
-    void SpawnZombie()
-    {
-        GameObject newZombie = Instantiate (zombie, transform.position, transform.rotation) as GameObject;
-        newZombie.transform.parent = transform;
+    private void SpawnZombie() {
+        for (int i = 0; i < spawnedZombies.Length; i++) {
+            if (!spawnedZombies[i]) {
+                GameObject newZombie = Instantiate(zombie, transform.position, transform.rotation);
+                newZombie.transform.parent = transform;
+                spawnedZombies[i] = newZombie;
+                break;
+            }
+        }
+    }
+
+    private void OnBecameInvisible() {
+        spawn = true;
+        StartCoroutine(ZombieSpawn());
+    }
+
+    private void OnBecameVisible() {
+        spawn = false;
     }
 }
