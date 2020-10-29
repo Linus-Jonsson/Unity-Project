@@ -56,8 +56,7 @@ public class ShootWeapon : MonoBehaviour
 
     protected virtual void SetVelocity(GameObject bullet)
     {
-        StartCoroutine(bullet.GetComponent<NormalBullet>().ExplodeBullet(aliveTime));
-
+        bullet.GetComponent<NormalBullet>().ExplodeAfter(aliveTime);
         Rigidbody2D cloneRb = bullet.GetComponent<Rigidbody2D>();
 
         //tyckte detta va smart. Stoppar att de åker igenom saker ifall man skjuter för snabbt

@@ -6,7 +6,6 @@ public class NormalBullet : MonoBehaviour
 {
     public GameObject hitEffekt;
     Rigidbody2D rb;
-    public AudioClip hitSound;
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
     [HideInInspector]
@@ -18,7 +17,13 @@ public class NormalBullet : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public IEnumerator ExplodeBullet(float t)
+    Coroutine explodeBullet;
+    public void ExplodeAfter(float t)
+    {
+        explodeBullet = StartCoroutine(ExplodeBullet(t));
+    }
+
+    private IEnumerator ExplodeBullet(float t)
     {
         yield return new WaitForSeconds(t);
         {
@@ -31,6 +36,7 @@ public class NormalBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var tag = collision.gameObject.tag;
@@ -39,9 +45,7 @@ public class NormalBullet : MonoBehaviour
             collision.gameObject.GetComponent<ZombieHealth>().DealDamage(1);
         }
 
-        audioSource.clip = hitSound;
-        audioSource.Play();
-
+        StopCoroutine(explodeBullet);
         ContactPoint2D contact = collision.GetContact(0);
         DestroyBullet(contact.point);
     }

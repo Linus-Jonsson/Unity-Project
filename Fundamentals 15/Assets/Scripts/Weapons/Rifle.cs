@@ -9,8 +9,7 @@ public class Rifle : ShootWeapon
     {
         GameObject bulletClone = Instantiate(bullet, shootPoint.position,
                 shootPoint.rotation * Quaternion.Euler(0, 0, Random.Range(-swayStrength, swayStrength)));
-        StartCoroutine(bulletClone.GetComponent<NormalBullet>().ExplodeBullet(aliveTime));
-
+       
         SetVelocity(bulletClone);
     }
 }
