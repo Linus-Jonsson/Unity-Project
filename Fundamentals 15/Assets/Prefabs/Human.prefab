@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d855ebf1da2d8b46a96dd54ef6c30b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transformationVFX: {fileID: 2335750166061990686, guid: d32f9d2209689f346b3c09ae4a5a8f47, type: 3}
   zombie: {fileID: 1740932224799773477, guid: e4e42ba00cf9949438d7c420aeb41cc2, type: 3}
   startHealth: 1
 --- !u!50 &3040224116180420889
