@@ -48,6 +48,7 @@ public class ShootWeapon : MonoBehaviour
         Shoot();
         PlayAudioClip(shootSound);
         GameObject muzzleClone = Instantiate(muzzleFlash, shootPoint.position, muzzleFlash.transform.rotation);
+        muzzleClone.transform.parent = shootPoint.transform;
     }
     protected virtual void Shoot()
     {
@@ -58,12 +59,11 @@ public class ShootWeapon : MonoBehaviour
     {
         bullet.GetComponent<NormalBullet>().ExplodeAfter(aliveTime);
         Rigidbody2D cloneRb = bullet.GetComponent<Rigidbody2D>();
-
+        cloneRb.velocity = bullet.transform.up.normalized * launchForce;
         //tyckte detta va smart. Stoppar att de åker igenom saker ifall man skjuter för snabbt
         if (launchForce >= 10)
             cloneRb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-        cloneRb.velocity = bullet.transform.up.normalized * launchForce;
     }
 
     protected void PlayAudioClip(AudioClip clip, bool pitch = true)

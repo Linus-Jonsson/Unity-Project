@@ -16,11 +16,11 @@ public class BurstRifle : ShootWeapon
         {
             if (i > 0)
                 PlayAudioClip(shootSound);
-
-            Instantiate(muzzleFlash, shootPoint.position, muzzleFlash.transform.rotation);
             GameObject bulletClone = Instantiate(bulletPrefab, shootPoint.position, transform.rotation);
             SetVelocity(bulletClone);
 
+            GameObject muzzleClone = Instantiate(muzzleFlash, shootPoint.position, muzzleFlash.transform.rotation);
+            muzzleClone.transform.parent = transform.parent;
 
             yield return new WaitForSeconds(bulletDelay);
         }

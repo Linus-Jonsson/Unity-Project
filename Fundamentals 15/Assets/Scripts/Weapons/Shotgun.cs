@@ -12,9 +12,9 @@ public class Shotgun : ShootWeapon
     void SpreadShoot(int n, float angleToDivide = 70)
     {
         float spreadAngle = angleToDivide / n; //blir vinkel mellan bullets;
+        float startAngle = (n - 1) * spreadAngle / 2; //gör så att det går att spawna på båda sidor -1 för mitten ska va 0
         for (int i = 0; i < n; i++)
         {
-            float startAngle = (n - 1) * spreadAngle / 2; //gör så att det går att spawna på båda sidor -1 för mitten ska va 0
             GameObject bulletClone = Instantiate(bullet, shootPoint.position,
                 shootPoint.rotation * Quaternion.Euler(0, 0, -startAngle + spreadAngle * i));
            

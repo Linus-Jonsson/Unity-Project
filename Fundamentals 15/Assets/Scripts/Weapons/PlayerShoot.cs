@@ -32,14 +32,16 @@ public class PlayerShoot : MonoBehaviour
     {
         if (currentAmountOfProjectiles > 0 && Time.time > nextFire && Input.GetMouseButtonDown(0))
         {
+            GameObject shootEffektClone = Instantiate(shootEffekt, shootPoint.position, shootEffekt.transform.rotation);
+            shootEffekt.transform.parent = shootPoint.transform;
+            Shoot();
+
             nextFire = fireRate + Time.time;
             currentAmountOfProjectiles -= 1;
             ammoUi.RemoveOneUi();
             audioSource.clip = shootSound;
             audioSource.Play();
 
-            GameObject shootEffektClone = Instantiate(shootEffekt, shootPoint.position, shootEffekt.transform.rotation);
-            Shoot();
         }
     }
 
