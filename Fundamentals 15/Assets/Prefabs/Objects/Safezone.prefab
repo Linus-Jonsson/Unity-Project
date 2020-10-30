@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chopper: {fileID: 2422742550691368357, guid: b1425ab9c39a3fc4ebde1f892326bc1d, type: 3}
   maxRescueSpots: 10
+  rescuedHumansGoal: 20
 --- !u!58 &6568983109784021620
 CircleCollider2D:
   m_ObjectHideFlags: 0

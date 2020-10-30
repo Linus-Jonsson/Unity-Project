@@ -19,9 +19,7 @@ public class PlayerHealth : MonoBehaviour {
 		playerHealthUI.RemoveFromUi(damage);
 		rb2D.AddForce(attacker.transform.up * force, ForceMode2D.Force);
 
-		if (currentHealth <= 0) {
-			Debug.Log("GameOver");
+		if (currentHealth <= 0)
 			FindObjectOfType<LevelController>().HandleLoseCondition();
-		}
 	}
 }
