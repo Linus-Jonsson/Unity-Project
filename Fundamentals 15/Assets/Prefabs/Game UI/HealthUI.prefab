@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2907845921580884919
+--- !u!1 &7177191875876560826
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2907845921580884916}
-  - component: {fileID: 2907845921580884917}
+  - component: {fileID: 7177191875876560825}
+  - component: {fileID: 2782729134691944965}
   m_Layer: 5
-  m_Name: AmmoUi
-  m_TagString: AmmoUi
+  m_Name: HealthUI
+  m_TagString: HealthUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2907845921580884916
+--- !u!224 &7177191875876560825
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2907845921580884919}
+  m_GameObject: {fileID: 7177191875876560826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,21 +33,21 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 30}
+  m_AnchoredPosition: {x: 30, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2907845921580884917
+--- !u!114 &2782729134691944965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2907845921580884919}
+  m_GameObject: {fileID: 7177191875876560826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0d36ec8233e4e4cbeed80de24afa15, type: 3}
+  m_Script: {fileID: 11500000, guid: ebc0c902cc0e4fc468d95e90c7127a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 3539881202476494217, guid: a51971b6518278b47b92dba52211393f, type: 3}
-  backroundSpruta: {fileID: 3539881202476494217, guid: 62d9714679f92dd4e908eba14aa09a05, type: 3}
-  xDist: 25
+  image: {fileID: 7361138509359834760, guid: 4e4c52f01fc1c9b42b634b2dff775957, type: 3}
+  backgroundHeart: {fileID: 2472476391371447190, guid: 7fd3d97bbe8479f41936a4d1d1d2c6f4, type: 3}
+  xDist: 35

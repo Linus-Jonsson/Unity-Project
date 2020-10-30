@@ -9,6 +9,9 @@ TagManager:
   - AmmoUi
   - WeaponPoint2
   - Safezone
+  - HealthUI
+  - PlayerHealthUI
+  - RescuesUI
   layers:
   - Default
   - TransparentFX
