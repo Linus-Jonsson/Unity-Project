@@ -3,69 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerProjectileCreationStation : MonoBehaviour
-{
-    public AudioClip craftSound;
-    AudioSource audioSource;
-    public GameObject craftText;
-    private Transform textSpawnPos;
-    PlayerShoot playerShoot;
-    private bool canCraft = false;
-    private bool isCrafting = false;
-    void Start()
-    {
-        if(GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).GetComponent<PlayerShoot>() != null)
-            playerShoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).GetComponent<PlayerShoot>();
-        textSpawnPos = GameObject.FindGameObjectWithTag("Player").transform;
+public class PlayerProjectileCreationStation : MonoBehaviour {
+	public AudioClip craftSound;
+	AudioSource audioSource;
+	public GameObject craftText;
+	private Transform textSpawnPos;
+	PlayerShoot playerShoot;
+	private bool canCraft = false;
+	private bool isCrafting = false;
 
-        audioSource = GetComponent<AudioSource>();
-    }
+	void Start() {
+		if (GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).GetComponent<PlayerShoot>() != null)
+			playerShoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).GetComponent<PlayerShoot>();
+		textSpawnPos = GameObject.FindGameObjectWithTag("Player").transform;
 
-    private void Update()
-    {
-        if (canCraft && Input.GetKeyDown(KeyCode.E))
-        {
-            if (playerShoot.CanCraft())
-            {
-                if(!isCrafting)
-                    StartCoroutine(Craft());        
-            }
-            else
-            {
-                SpawnText("Full inventory"); //GItHub Test
-            }
-        }
-    }
+		audioSource = GetComponent<AudioSource>();
+	}
 
-    IEnumerator Craft()
-    {
-        isCrafting = true;
+	private void Update() {
+		if (canCraft && Input.GetKeyDown(KeyCode.E)) {
+			if (playerShoot.CanCraft()) {
+				if (!isCrafting)
+					StartCoroutine(Craft());
+			}
+			else {
+				SpawnText("Full inventory"); //GItHub Test
+			}
+		}
+	}
 
-        SpawnText("Crafting");
-        audioSource.clip = craftSound;
-        audioSource.Play();
-        yield return new WaitForSeconds(audioSource.clip.length);
-        playerShoot.AddProjetiles(1);
-        SpawnText("Projectile +1");
+	IEnumerator Craft() {
+		isCrafting = true;
 
-        isCrafting = false;
-    }
+		SpawnText("Crafting");
+		audioSource.clip = craftSound;
+		audioSource.Play();
+		yield return new WaitForSeconds(audioSource.clip.length);
+		playerShoot.AddProjetiles(1);
+		SpawnText("Projectile +1");
 
-    void SpawnText(string text)
-    {
-        GameObject craftedClone = Instantiate(craftText, textSpawnPos.position + (Vector3.up), craftText.transform.rotation);
-        craftedClone.GetComponent<FadeTextEffekt>().UpdateText(text);
-    }
+		isCrafting = false;
+	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-            canCraft = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-            canCraft = false;
-    }
+	void SpawnText(string text) {
+		GameObject craftedClone = Instantiate(craftText, textSpawnPos.position + (Vector3.up),
+			craftText.transform.rotation);
+		craftedClone.GetComponent<FadeTextEffekt>().UpdateText(text);
+	}
 
+	private void OnTriggerEnter2D(Collider2D collision) {
+		if (collision.gameObject.tag == "Player")
+			canCraft = true;
+	}
+
+	private void OnTriggerExit2D(Collider2D collision) {
+		if (collision.gameObject.tag == "Player")
+			canCraft = false;
+	}
 }

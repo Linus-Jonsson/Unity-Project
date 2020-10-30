@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieMovement : MonoBehaviour
-{
-  public Transform target;
+public class ZombieMovement : MonoBehaviour {
+	public Transform target;
 	[SerializeField] private int huntPlayerChance = 50;
 	[SerializeField] private int speed = 1;
 	private Rigidbody2D rb2D;
