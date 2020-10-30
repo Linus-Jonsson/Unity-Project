@@ -197,6 +197,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 3
+  invulnerabilityDuration: 1
+  blinkSpeed: 0.15
+  hurtColor: {r: 0.7924528, g: 0.14503376, b: 0.14503376, a: 1}
 --- !u!50 &2982411343538741625
 Rigidbody2D:
   serializedVersion: 4
