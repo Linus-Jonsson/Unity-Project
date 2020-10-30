@@ -8,7 +8,7 @@ AnimationClip:
   m_PrefabAsset: {fileID: 0}
   m_Name: Explosion
   serializedVersion: 6
-  m_Legacy: 0
+  m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -90,31 +90,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 3
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 5986030973748356752, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: -5600206312213581617, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: -3690502768834906923, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: -49130668184793455, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: -2330519403281856691, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: -4796932125324312052, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: 7788287979965792003, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: -5876230404456235001, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
-    - {fileID: 497560801652076451, guid: 1eb8d4588dc0d0d4bb1af6b26af7ea7f, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
