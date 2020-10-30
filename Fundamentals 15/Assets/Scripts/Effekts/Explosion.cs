@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
-{
-    public void DestroyGameObject()
-    {
-        Destroy(gameObject);
-    }
+public class Explosion : MonoBehaviour {
+	public void DestroyGameObject() {
+		Destroy(gameObject);
+	}
 }

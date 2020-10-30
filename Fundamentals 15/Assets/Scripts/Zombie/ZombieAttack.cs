@@ -6,7 +6,7 @@ using UnityEngine;
 public class ZombieAttack : MonoBehaviour {
 	[SerializeField] private int damage = 1;
 	[SerializeField] private int knockbackForce = 2;
-	
+
 
 	private ZombieMovement controller;
 
@@ -23,7 +23,8 @@ public class ZombieAttack : MonoBehaviour {
 
 		if (other.gameObject.CompareTag("Human")) {
 			other.gameObject.GetComponent<HumanHealth>().Damage(damage);
-		} else if (other.gameObject.CompareTag("Player"))
+		}
+		else if (other.gameObject.CompareTag("Player"))
 			other.gameObject.GetComponent<PlayerHealth>().Damage(damage, gameObject, knockbackForce);
 	}
 }

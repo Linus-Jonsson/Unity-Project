@@ -27,8 +27,7 @@ public class PlayerController : MonoBehaviour {
 		rb2D.velocity = input * speed;
 	}
 
-	void LookAtMouse()
-	{
+	void LookAtMouse() {
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
 	}
