@@ -44,15 +44,16 @@ public class LevelController : MonoBehaviour
 
     public void PauseGame()
     {
-        if (gameIsPaused)
-        {
-            player.SetActive(false);
+        if (gameIsPaused) {
+            player.GetComponent<PlayerController>().enabled = false;
+            player.GetComponent<PlayerFootstep>().enabled = false;
             pauseLabel.SetActive(true);
             Time.timeScale = 0f;
         }
         else
         {
-            player.SetActive(true);
+            player.GetComponent<PlayerController>().enabled = true;
+            player.GetComponent<PlayerFootstep>().enabled = true;
             pauseLabel.SetActive(false);
             Time.timeScale = 1;
         }
