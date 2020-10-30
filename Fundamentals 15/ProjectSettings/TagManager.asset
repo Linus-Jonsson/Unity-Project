@@ -11,6 +11,7 @@ TagManager:
   - Safezone
   - HealthUI
   - PlayerHealthUI
+  - RescuesUI
   layers:
   - Default
   - TransparentFX
