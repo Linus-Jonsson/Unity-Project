@@ -7,7 +7,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] GameObject winLabel;
     [SerializeField] GameObject loseLabel;
     [SerializeField] GameObject pauseLabel;
-    PlayerController playerController;
+    GameObject player;
     bool gameIsPaused;
 
     void Start()
@@ -15,7 +15,7 @@ public class LevelController : MonoBehaviour
         winLabel.SetActive(false);
         loseLabel.SetActive(false);
         pauseLabel.SetActive(false);
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -31,14 +31,14 @@ public class LevelController : MonoBehaviour
     {
 
         winLabel.SetActive(true);
-        playerController.enabled = false;
+        player.SetActive(false);
         Time.timeScale = 0;
     }
 
     public void HandleLoseCondition()
     {
         loseLabel.SetActive(true);
-        playerController.enabled = false;
+        player.SetActive(false);
         Time.timeScale = 0;
     }
 
@@ -46,13 +46,13 @@ public class LevelController : MonoBehaviour
     {
         if (gameIsPaused)
         {
-            playerController.enabled = false;
+            player.SetActive(false);
             pauseLabel.SetActive(true);
             Time.timeScale = 0f;
         }
         else
         {
-            playerController.enabled = true;
+            player.SetActive(true);
             pauseLabel.SetActive(false);
             Time.timeScale = 1;
         }

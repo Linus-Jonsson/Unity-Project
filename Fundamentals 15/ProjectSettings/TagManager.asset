@@ -12,6 +12,7 @@ TagManager:
   - HealthUI
   - PlayerHealthUI
   - RescuesUI
+  - Waypoint
   layers:
   - Default
   - TransparentFX

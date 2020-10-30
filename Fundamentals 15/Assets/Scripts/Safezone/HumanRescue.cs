@@ -20,7 +20,7 @@ public class HumanRescue : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (!other.CompareTag("Human"))
+		if (!other.CompareTag("Human") || other.isTrigger)
 			return;
 
 		if (!AssignHumanToChopper(other.gameObject))
@@ -40,7 +40,7 @@ public class HumanRescue : MonoBehaviour {
 
 	private bool AssignHumanToChopper(GameObject human) {
 		for (int i = 0; i < escortedHumans.Length; i++) {
-			if (escortedHumans[i] != null)
+			if (escortedHumans[i])
 				continue;
 
 			escortedHumans[i] = human;
@@ -66,11 +66,11 @@ public class HumanRescue : MonoBehaviour {
 			escortedHumans[i] = null;
 			rescuedHumans++;
 			rescuesUI.AddOneUI(rescuedHumans);
-            if (rescuedHumans >= rescuedHumansGoal)
-            {
-				FindObjectOfType<LevelController>().HandleWinCondition();
-            }
+
 		}
+
+		if (rescuedHumans >= rescuedHumansGoal)
+        FindObjectOfType<LevelController>().HandleWinCondition();
 		incomingChopper = false;
 	}
 }

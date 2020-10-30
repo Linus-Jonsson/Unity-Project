@@ -50,4 +50,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 7361138509359834760, guid: 4e4c52f01fc1c9b42b634b2dff775957, type: 3}
   backgroundHeart: {fileID: 2472476391371447190, guid: 7fd3d97bbe8479f41936a4d1d1d2c6f4, type: 3}
-  xDist: 35
+  xDist: 70
