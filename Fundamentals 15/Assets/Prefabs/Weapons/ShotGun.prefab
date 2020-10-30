@@ -52,6 +52,7 @@ MonoBehaviour:
   launchForce: 8
   aliveTime: 0.3
   fireRate: 0.8
+  dmgPerBullet: 0.5
   minPitch: 0.7
   maxPitch: 1.8
   muzzleFlash: {fileID: 476946946170179420, guid: 6e8b8e130af218449b33295000d60799, type: 3}
@@ -270,7 +271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 46a9c8389c8a80e4d8cc0e0136572fed, type: 3}
   m_Color: {r: 0.990566, g: 0.71488965, b: 0.71488965, a: 1}
   m_FlipX: 0

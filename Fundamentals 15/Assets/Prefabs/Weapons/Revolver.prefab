@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: edcaa24e276d95e4da669cf64b5375c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -260,6 +260,7 @@ MonoBehaviour:
   launchForce: 15
   aliveTime: 1
   fireRate: 1
+  dmgPerBullet: 1.5
   minPitch: 0.9
   maxPitch: 1.2
   muzzleFlash: {fileID: 476946946170179420, guid: 6e8b8e130af218449b33295000d60799, type: 3}
