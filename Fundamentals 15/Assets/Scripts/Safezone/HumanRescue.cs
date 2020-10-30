@@ -6,12 +6,17 @@ using UnityEngine;
 public class HumanRescue : MonoBehaviour {
 	[SerializeField] private GameObject chopper;
 	[SerializeField] private int maxRescueSpots = 10;
+	[SerializeField] private int rescuedHumansGoal = 3;
 
 	private bool incomingChopper = false;
 	private GameObject[] escortedHumans;
+	private int rescuedHumans;
+	private RescuesUI rescuesUI;
 
 	private void Start() {
 		escortedHumans = new GameObject[maxRescueSpots];
+		rescuedHumans = 0;
+		rescuesUI = GameObject.FindGameObjectWithTag("RescuesUI").GetComponent<RescuesUI>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
@@ -59,6 +64,12 @@ public class HumanRescue : MonoBehaviour {
 
 			Destroy(escortedHumans[i]);
 			escortedHumans[i] = null;
+			rescuedHumans++;
+			rescuesUI.AddOneUI(rescuedHumans);
+            if (rescuedHumans >= rescuedHumansGoal)
+            {
+				FindObjectOfType<LevelController>().HandleWinCondition();
+            }
 		}
 		incomingChopper = false;
 	}

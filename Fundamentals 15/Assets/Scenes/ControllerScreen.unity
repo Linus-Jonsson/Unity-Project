@@ -349,7 +349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "  Up - W    Down - S                   SwordAttack - Space         Move
+  m_text: "  Up - W    Down - S                 Weapon Attack - Space         Move
     Humans - Right Mouse\n Left - A   Right - D              Throw Syringe - Left
     Mouse              Syringe Refill - E"
   m_isRightToLeft: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "  Up - W    Down - S                   SwordAttack - Space         Move
+  m_text: "  Up - W    Down - S                 Weapon Attack - Space         Move
     Humans - Right Mouse\n Left - A   Right - D              Throw Syringe - Left
     Mouse              Syringe Refill - E"
   m_isRightToLeft: 0
