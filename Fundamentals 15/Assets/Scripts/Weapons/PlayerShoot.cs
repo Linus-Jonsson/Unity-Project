@@ -33,7 +33,7 @@ public class PlayerShoot : MonoBehaviour
         if (currentAmountOfProjectiles > 0 && Time.time > nextFire && Input.GetMouseButtonDown(0))
         {
             GameObject shootEffektClone = Instantiate(shootEffekt, shootPoint.position, shootEffekt.transform.rotation);
-            shootEffekt.transform.parent = shootPoint.transform;
+            shootEffektClone.transform.SetParent(shootPoint.transform);
             Shoot();
 
             nextFire = fireRate + Time.time;
