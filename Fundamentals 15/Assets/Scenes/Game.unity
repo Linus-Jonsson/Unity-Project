@@ -76749,6 +76749,14 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7103198936092579059, guid: fb5cda6237e1b2544bac038818673207, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103198936092579059, guid: fb5cda6237e1b2544bac038818673207, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7103198936125424925, guid: fb5cda6237e1b2544bac038818673207, type: 3}
       propertyPath: m_Color.r
       value: 0.9716981
@@ -80403,7 +80411,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2742389561401490587, guid: f591f4f3d1a4dfc48903fda1d9a2a0ed, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2742389561973681976, guid: f591f4f3d1a4dfc48903fda1d9a2a0ed, type: 3}
       propertyPath: dmgPerBullet
