@@ -66,11 +66,10 @@ public class HumanRescue : MonoBehaviour {
 			escortedHumans[i] = null;
 			rescuedHumans++;
 			rescuesUI.AddOneUI(rescuedHumans);
-
 		}
 
 		if (rescuedHumans >= rescuedHumansGoal)
-        FindObjectOfType<LevelController>().HandleWinCondition();
+			FindObjectOfType<LevelController>().HandleWinCondition();
 		incomingChopper = false;
 	}
 }

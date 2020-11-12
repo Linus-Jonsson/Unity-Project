@@ -11,15 +11,13 @@ public class CameraEdgeSnap : MonoBehaviour {
 
 	Camera gameCamera;
 
-	private void Start()
-	{
+	private void Start() {
 		//Create a reference to our camera.
 		gameCamera = Camera.main;
 	}
 
 	// Update is called after all update functions are done.
-	void LateUpdate()
-	{
+	void LateUpdate() {
 		//Save our position in a tmp variable that we can modify like we want
 		Vector3 tmpPosition = transform.position;
 

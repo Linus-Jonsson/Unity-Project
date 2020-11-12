@@ -42,9 +42,6 @@ public class ChopperController : MonoBehaviour {
 	}
 
 	private void MoveTo(Vector3 destination) {
-		if (state == State.Exiting) {
-
-		}
 		Vector2 direction = destination - transform.position;
 
 		if (direction.sqrMagnitude > 1)

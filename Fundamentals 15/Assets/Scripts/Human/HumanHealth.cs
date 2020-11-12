@@ -31,4 +31,3 @@ public class HumanHealth : MonoBehaviour {
 		Destroy(gameObject);
 	}
 }
-
